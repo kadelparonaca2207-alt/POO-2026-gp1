@@ -69,9 +69,6 @@
                            textFill="#999999"/>
                 </children>
             </HBox>
-
         </VBox>
-
-
     </center>
 </BorderPane>
