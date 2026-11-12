@@ -97,9 +97,13 @@
 }
 .button-action-edit{
 -fx-background-color: #014074;
- -fx-text-fill: white
+ -fx-text-fill: white;
 }
 .button-action-delete{
 -fx-background-color: #F66666;
- -fx-text-fill: white
+ -fx-text-fill: white;
+}
+.button-action-cancel{
+-fx-background-color: #ff7f24;
+ -fx-text-fill: white;
 }

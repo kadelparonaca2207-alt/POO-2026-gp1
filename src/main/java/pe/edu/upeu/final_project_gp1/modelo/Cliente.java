@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 public class Cliente extends Persona {
     private final StringProperty email = new SimpleStringProperty();
     private final StringProperty genero = new SimpleStringProperty();
-    private final IntegerProperty idcliente = new SimpleIntegerProperty(this, "idcliente");
+    private final IntegerProperty idcliente = new SimpleIntegerProperty();
 
     public final int getIdcliente() {
         return idcliente.get();

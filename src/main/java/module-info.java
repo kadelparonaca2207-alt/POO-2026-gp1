@@ -7,6 +7,8 @@ module pe.edu.upeu.final_project_gp1 {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires javafx.graphics;
+    requires java.desktop;
 
     opens pe.edu.upeu.final_project_gp1 to javafx.fxml;
     opens pe.edu.upeu.final_project_gp1.modelo to javafx.base, javafx.fxml;

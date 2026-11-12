@@ -96,6 +96,15 @@ public class ClienteController {
         }
 
     }
+    @FXML
+    private void handleEdit(){
+        Cliente seleccionado = tableCliente.getSelectionModel().getSelectedItem();
+        if (seleccionado == null){
+            Alert confirm = alertUtils.viewAlerts("Selección requerida" , "Seleccione un cliente" , "WARNING");
+            return;
+        }
+        Cliente clienteCompleto = clienteDao.searchByDni(String.valueOf(seleccionado.getIdcliente()));
+    }
 
 
 }
