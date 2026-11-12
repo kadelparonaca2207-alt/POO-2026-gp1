@@ -1,9 +1,7 @@
 package pe.edu.upeu.final_project_gp1.implementacion;
 
 import pe.edu.upeu.final_project_gp1.interfaces.IReservaDao;
-import pe.edu.upeu.final_project_gp1.modelo.Cliente;
-import pe.edu.upeu.final_project_gp1.modelo.Habitacion;
-import pe.edu.upeu.final_project_gp1.modelo.Reserva;
+import pe.edu.upeu.final_project_gp1.modelo.*;
 import pe.edu.upeu.final_project_gp1.modelo.Reserva;
 import pe.edu.upeu.final_project_gp1.utils.ConexionBD;
 
@@ -57,11 +55,12 @@ public class ReservaDaoImpl implements IReservaDao {
     public List<Reserva> listAll() {
         List<Reserva> lista = new ArrayList<>();
         String query = "SELECT r.*, c.nombre ||' '|| c.apellido AS nombre_completo, c.dni, h.numero, h.numeroPiso, " +
-                "h.numeroHabitacion, h.precio, h.estado AS estado_hab" +
-                " FROM reserva r, cliente c, habitacion h" +
+                "h.numeroHabitacion, h.precio, h.estado AS estado_hab, u.user" +
+                " FROM reserva r, cliente c, habitacion h, usuario u" +
                 " WHERE r.clienteId = c.idcliente" +
                 " AND r.habitacionId = h.idhabitacion" +
-                " AND r.estado = 'O'";                    //PREPARAR LA CONSULTA
+                " AND r.estado = 'O'" +
+                "AND r.usuarioId = u.idusuario";                    //PREPARAR LA CONSULTA
         try (Connection cn = ConexionBD.getConnection();
              PreparedStatement st = cn.prepareStatement(query);     //PREPARA LOS DATOS
              ResultSet rs = st.executeQuery();                      //RECIBE LOS DATOS
@@ -70,9 +69,10 @@ public class ReservaDaoImpl implements IReservaDao {
                 Reserva r = new Reserva();
                 Cliente cl = new Cliente();
                 Habitacion h = new Habitacion();
+                Usuario u = new Usuario();
                 cl.setIdcliente(rs.getInt("clienteID"));
                 cl.setNombre(rs.getString("nombre_completo"));
-                cl.setDni(rs.getString("dni"));
+                cl.setDni(rs.getString("dni"));                                 // :(
 
                 h.setIdhabitacion(rs.getInt("habitacionId"));
                 h.setNumero(rs.getString("numero"));
@@ -87,8 +87,13 @@ public class ReservaDaoImpl implements IReservaDao {
                 r.setTotal(rs.getDouble("total"));
                 r.setEstado(rs.getString("estado"));
 
+                u.setIdusuario(rs.getInt("usuarioId"));
+                u.setUser(rs.getString("user"));
+                u.setUser(rs.getString(query));
+
                 r.setCliente(cl);
                 r.setHabitacion(h);
+                r.setUsuario(u);
 
                 lista.add(r);
             }

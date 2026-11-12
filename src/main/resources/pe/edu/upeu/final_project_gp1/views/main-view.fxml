@@ -53,7 +53,7 @@
                         text="Clientes"/>
                 <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#showHabitaciones" styleClass="nav-button"
                         text="Habitaciones"/>
-                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#showHabitaciones" styleClass="nav-button"
+                <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#showReserva" styleClass="nav-button"
                         text="Reservas"/>
                 <Region VBox.vgrow="ALWAYS"/>
                 <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#handleLogout" styleClass="nav-button" style="-fx-text-fill: #ff6666"

@@ -11,6 +11,20 @@ public class Reserva {
     private final DoubleProperty total = new SimpleDoubleProperty();
     private final StringProperty estado = new SimpleStringProperty();
     private final ObjectProperty<LocalDate> fechaSalida = new SimpleObjectProperty<>();
+    private final ObjectProperty<Usuario> usuario = new SimpleObjectProperty<>();
+
+    public final Usuario getUsuario() {
+        return usuario.get();
+    }
+
+    public final void setUsuario(Usuario value) {
+        usuario.set(value);
+    }
+
+    public final ObjectProperty<Usuario> usuarioProperty() {
+        return usuario;
+    }
+
 
     public final LocalDate getFechaSalida() {
         return fechaSalida.get();

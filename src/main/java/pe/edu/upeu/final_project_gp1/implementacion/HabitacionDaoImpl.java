@@ -71,6 +71,11 @@ public class HabitacionDaoImpl implements IHabitacionDao {
     }
 
     @Override
+    public Habitacion SearchById(String id) {
+        return null;
+    }
+
+    @Override
     public Habitacion SearchById(int id, String numero, String numeroPiso, String numeroHab, String tipo, Double precio, String estado) {
         List<Habitacion> lista = new ArrayList<>();
         Habitacion habitacion = null;
